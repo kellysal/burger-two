@@ -1,16 +1,19 @@
 // Dependencies
-var express = require("express");
-// Import the model to use its db functions for burger.js
-var db = require("../models/");
+const express = require("express");
 
 // Create the router for the app, and export the router at the end of your file.
-var router = express.Router();
+const router = express.Router();
+
+// Import the model to use its db functions for burger.js
+const db = require("../models/");
+
+
 // Create routes and set up logic where required.
 router.get("/", function (req, res) {
-    res.redirect("/burgers");
+    res.redirect("/burger");
 });
 
-router.get("/burgers", function (req, res) {
+router.get("/burger", function (req, res) {
     db.Burger.findAll()
         .then(function (dbBurger) {
             console.log(dbBurger);
@@ -21,7 +24,7 @@ router.get("/burgers", function (req, res) {
 });
 
 // Add new burger to the db.
-router.post("/burgers/create", function (req, res) {
+router.post("/burger/create", function (req, res) {
     db.Burger.create({
         burger_name: req.body.burger_name
     })
@@ -31,7 +34,7 @@ router.post("/burgers/create", function (req, res) {
         });
 });
 // Set burger devoured status to true.
-router.put("/burgers/update/:id", function (req, res) {
+router.put("/burger/update/:id", function (req, res) {
     db.Burger.update({
         devoured: true
     }, {

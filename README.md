@@ -1,5 +1,7 @@
 # Burger 2: The Sequel
 
+Deployed on Heroku: https://stormy-temple-68027.herokuapp.com/burgers
+
 ### Overview
 
 This homework assignment is **optional**.
